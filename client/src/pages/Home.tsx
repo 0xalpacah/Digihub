@@ -63,7 +63,7 @@ export default function Home() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 flex-wrap">
               <a href="/dashboard" className="btn-cyber group inline-block">
                 <span className="flex items-center gap-2">
                   Explore Dashboard
@@ -72,6 +72,12 @@ export default function Home() {
               </a>
               <a href="/blog" className="btn-cyber-magenta inline-block">
                 Read Blog
+              </a>
+              <a href="/contract" className="btn-cyber-green inline-block">
+                <span className="flex items-center gap-2">
+                  Contract Interactions
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
               </a>
             </div>
           </div>

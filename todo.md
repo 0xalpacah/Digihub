@@ -139,3 +139,10 @@
 ## Bugs Reported
 - [x] Dashboard button not working - FIXED: Changed from button to anchor tag with href
 - [x] Wallet connector button not appearing - FIXED: Added useState/useEffect imports to useWalletConnection hook
+
+
+## Navigation Improvements
+- [x] Add "Contract Interactions" button to Home page
+- [x] Add "Contract Interactions" link to Dashboard header
+- [x] Update main navigation to include Contract page
+- [ ] Add breadcrumb navigation to Contract page

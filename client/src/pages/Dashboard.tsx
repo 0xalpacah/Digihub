@@ -72,6 +72,15 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* Navigation Links */}
+      <div className="mb-6 flex justify-between items-center gap-4">
+        <div className="flex gap-2">
+          <a href="/contract" className="px-4 py-2 border border-green-500 text-green-400 rounded hover:border-green-400 hover:bg-green-950 transition-colors font-mono text-sm">
+            CONTRACT INTERACTIONS
+          </a>
+        </div>
+      </div>
+
       {/* Refresh Button */}
       <div className="mb-6 flex justify-end">
         <button
