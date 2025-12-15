@@ -7,6 +7,7 @@ import * as db from "./db";
 import { TRPCError } from "@trpc/server";
 import { arcMetricsRouter } from "./routers/arc-metrics";
 import { blogImagesRouter } from "./routers/blog-images";
+import { onChainDataRouter } from "./routers/on-chain-data";
 
 const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
   if (ctx.user.role !== 'admin') {
@@ -19,6 +20,7 @@ export const appRouter = router({
   system: systemRouter,
   arcMetrics: arcMetricsRouter,
   blogImages: blogImagesRouter,
+  onChainData: onChainDataRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {

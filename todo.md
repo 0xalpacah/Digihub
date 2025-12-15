@@ -90,3 +90,14 @@
 - [ ] Add loading states and error handling
 - [ ] Create metrics history tracking
 - [ ] Build charts for metrics trends
+
+
+## Phase 13: Dashboard On-chain + Off-chain
+- [x] Create Solidity contract for Arc Network registry (ArcNetworkRegistry.sol)
+- [ ] Deploy contract to Arc Network testnet/mainnet
+- [x] Create tRPC procedures to read on-chain data (balances, supply, holders)
+- [x] Integrate contract ABI and address in frontend
+- [x] Build advanced Dashboard page with on-chain + off-chain data visualization
+- [ ] Add real-time updates for on-chain metrics
+- [ ] Create leaderboard of top holders/contributors
+- [ ] Add blockchain explorer links for transactions
