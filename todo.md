@@ -134,3 +134,8 @@
 - [ ] Deploy ArcNetworkRegistry contract to Arc Network
 - [ ] Update ARC_REGISTRY_ADDRESS in environment variables
 - [ ] Add contract interaction links to Home and Dashboard pages
+
+
+## Bugs Reported
+- [x] Dashboard button not working - FIXED: Changed from button to anchor tag with href
+- [x] Wallet connector button not appearing - FIXED: Added useState/useEffect imports to useWalletConnection hook

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { trpc } from '@/lib/trpc';
-import { Activity, Users, Zap, Coins, TrendingUp, AlertCircle } from 'lucide-react';
+import { Activity, Users, Zap, Coins, TrendingUp, AlertCircle, RefreshCw } from 'lucide-react';
 import WalletConnector from '@/components/WalletConnector';
 import MetricsTrendCharts from '@/components/MetricsTrendCharts';
+import { useAuth } from '@/_core/hooks/useAuth';
 
 interface DashboardMetrics {
   networkMetrics: any;

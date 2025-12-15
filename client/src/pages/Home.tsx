@@ -64,15 +64,15 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <button className="btn-cyber group">
+              <a href="/dashboard" className="btn-cyber group inline-block">
                 <span className="flex items-center gap-2">
                   Explore Dashboard
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </button>
-              <button className="btn-cyber-magenta">
+              </a>
+              <a href="/blog" className="btn-cyber-magenta inline-block">
                 Read Blog
-              </button>
+              </a>
             </div>
           </div>
         </div>
