@@ -10,17 +10,19 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Resources from "./pages/Resources";
 import Admin from "./pages/Admin";
+import ContractInteractions from "./pages/ContractInteractions";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/dashboard"} component={Dashboard} />
-      <Route path={"/blog"} component={Blog} />
-      <Route path={"/blog/:slug"} component={BlogPost} />
-      <Route path={"/resources"} component={Resources} />
-      <Route path={"/admin"} component={Admin} />
-      <Route path={"/404"} component={NotFound} />
+      <Route path="/" component={Home} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/contract" component={ContractInteractions} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/resources" component={Resources} />
+      <Route path="/admin" component={Admin} />
+      <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>

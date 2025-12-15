@@ -117,3 +117,20 @@
 - [ ] Implement wallet transaction signing for contract interactions
 - [ ] Add project registration form with wallet integration
 - [ ] Add donation/tip functionality with USDC
+
+
+## Phase 15: Contract Interactions (Register Projects & Donate USDC)
+- [x] Create RegisterProjectForm component with validation
+- [x] Create DonateUSDCForm component with USDC transfer logic
+- [x] Implement registerProject contract interaction
+- [x] Implement USDC approve and transfer logic
+- [x] Create ContractInteractions page with tabs
+- [x] Add form validation and error handling
+- [x] Add success feedback and transaction confirmation
+- [x] Integrate wallet connection checks
+- [x] Add Arc Network verification
+- [x] Display on-chain statistics (projects, donations, contributors)
+- [x] Add refresh button to update data after transactions
+- [ ] Deploy ArcNetworkRegistry contract to Arc Network
+- [ ] Update ARC_REGISTRY_ADDRESS in environment variables
+- [ ] Add contract interaction links to Home and Dashboard pages
