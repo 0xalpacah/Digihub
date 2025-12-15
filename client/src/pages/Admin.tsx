@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Plus, Edit2, Trash2, Eye, EyeOff } from 'lucide-react';
+import { Plus, Edit2, Trash2, Eye, EyeOff, Wand2, Loader } from 'lucide-react';
+import { trpc } from '@/lib/trpc';
 
 interface AdminPost {
   id: number;
@@ -48,7 +49,10 @@ export default function Admin() {
     title: '',
     category: 'Announcement',
     content: '',
+    coverImage: '',
   });
+  const [generatingImage, setGeneratingImage] = useState(false);
+  const generateCoverMutation = trpc.blogImages.generateCover.useMutation();
 
   const handleDeletePost = (id: number) => {
     setPosts(posts.filter(p => p.id !== id));
@@ -66,7 +70,7 @@ export default function Admin() {
         views: 0,
       };
       setPosts([post, ...posts]);
-      setNewPost({ title: '', category: 'Announcement', content: '' });
+      setNewPost({ title: '', category: 'Announcement', content: '', coverImage: '' });
       setShowNewPostForm(false);
     }
   };

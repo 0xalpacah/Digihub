@@ -65,3 +65,28 @@
 
 ## Completed Items
 (None yet)
+
+
+## Phase 10: Arc Network RPC Integration
+- [x] Research Arc Network RPC endpoints and documentation
+- [x] Create tRPC procedures for fetching real-time metrics (best block, gas price, block time, etc.)
+- [x] Implement Ethers.js integration for RPC calls
+- [ ] Add caching strategy for metrics to avoid rate limiting
+- [x] Create procedures for fetching recent blocks and transactions
+- [x] Implement procedures for network statistics (active nodes, difficulty, hashrate)
+
+## Phase 11: AI-Powered Image Generation for Blog Covers
+- [x] Create tRPC procedure for generating blog post cover images
+- [x] Integrate with Manus image generation API (generateImage helper)
+- [x] Design prompt engineering for consistent cyberpunk aesthetic
+- [x] Add image generation to admin post creation form
+- [ ] Implement image preview and regeneration functionality
+- [x] Store generated images in S3 with storagePut helper
+- [ ] Add image metadata to blog_posts table
+
+## Phase 12: Real-time Metrics Display
+- [ ] Update NetworkDashboard component to use real tRPC data
+- [ ] Implement auto-refresh for metrics (every 5-10 seconds)
+- [ ] Add loading states and error handling
+- [ ] Create metrics history tracking
+- [ ] Build charts for metrics trends
