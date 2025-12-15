@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { trpc } from '@/lib/trpc';
 import { Activity, Users, Zap, Coins, TrendingUp, AlertCircle } from 'lucide-react';
+import WalletConnector from '@/components/WalletConnector';
+import MetricsTrendCharts from '@/components/MetricsTrendCharts';
 
 interface DashboardMetrics {
   networkMetrics: any;
@@ -39,14 +41,24 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-black text-white p-4 md:p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">
-          <span className="text-cyan-400 neon-cyan">[</span>
-          <span className="text-cyan-400 neon-cyan">DASHBOARD</span>
-          <span className="text-cyan-400 neon-cyan">]</span>
-        </h1>
-        <p className="text-gray-400 font-mono text-sm">Arc Network Real-time Metrics & On-chain Data</p>
+      {/* Header with Wallet Connector */}
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">
+            <span className="text-cyan-400 neon-cyan">[</span>
+            <span className="text-cyan-400 neon-cyan">DASHBOARD</span>
+            <span className="text-cyan-400 neon-cyan">]</span>
+          </h1>
+          <p className="text-gray-400 font-mono text-sm">Arc Network Real-time Metrics & On-chain Data</p>
+        </div>
+        <div className="hidden md:block">
+          <WalletConnector />
+        </div>
+      </div>
+      
+      {/* Mobile Wallet Connector */}
+      <div className="md:hidden mb-4">
+        <WalletConnector />
       </div>
 
       {/* Error Alert */}
@@ -253,13 +265,21 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* Metrics Trends Section */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">
+          <span className="text-green-400">&gt;</span> METRICS TRENDS
+        </h2>
+        <MetricsTrendCharts hours={24} />
+      </div>
+
       {/* Footer */}
       <div className="mt-12 pt-8 border-t border-gray-800 text-center">
         <p className="text-gray-500 font-mono text-xs">
           Last updated: {new Date().toLocaleTimeString()}
         </p>
         <p className="text-gray-600 font-mono text-xs mt-2">
-          Arc Network Registry Dashboard • On-chain + Off-chain Data
+          Arc Network Registry Dashboard • On-chain + Off-chain Data • Metrics Trends
         </p>
       </div>
     </div>

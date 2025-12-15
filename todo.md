@@ -101,3 +101,19 @@
 - [ ] Add real-time updates for on-chain metrics
 - [ ] Create leaderboard of top holders/contributors
 - [ ] Add blockchain explorer links for transactions
+
+
+## Phase 14: Metrics Trends & Wallet Integration
+- [x] Create metrics history storage module (metrics-history.ts)
+- [x] Implement tRPC procedures for trend data (gas price, block time, transaction volume)
+- [x] Create MetricsTrendCharts component with Recharts
+- [x] Add time range selector (1h, 6h, 12h, 24h, 48h, 7d)
+- [x] Display metrics statistics (average, min, max)
+- [x] Implement useWalletConnection hook for MetaMask integration
+- [x] Create WalletConnector component for UI
+- [x] Add wallet connection to Dashboard header
+- [x] Implement network switching to Arc Network (chainId 42161)
+- [x] Add metrics trends charts to Dashboard
+- [ ] Implement wallet transaction signing for contract interactions
+- [ ] Add project registration form with wallet integration
+- [ ] Add donation/tip functionality with USDC
