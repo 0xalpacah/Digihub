@@ -12,11 +12,12 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 backdrop-blur-sm border-b" style={{ borderColor: 'rgba(0, 255, 255, 0.2)' }}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="text-2xl font-bold text-cyan-400 neon-cyan font-mono">
+          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src="/logo-arc-cyberpunk.png" alt="Arc Network" className="h-12 w-12 object-contain" />
+            <div className="text-2xl font-bold text-cyan-400 neon-cyan font-mono hidden sm:block">
               [ ARC ]
             </div>
-          </div>
+          </a>
           <div className="flex items-center gap-4">
             <a href="#blog" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
               Blog

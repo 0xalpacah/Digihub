@@ -44,13 +44,18 @@ export default function Dashboard() {
     <div className="min-h-screen bg-black text-white p-4 md:p-8">
       {/* Header with Wallet Connector */}
       <div className="mb-8 flex items-center justify-between">
-        <div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">
-            <span className="text-cyan-400 neon-cyan">[</span>
-            <span className="text-cyan-400 neon-cyan">DASHBOARD</span>
-            <span className="text-cyan-400 neon-cyan">]</span>
-          </h1>
-          <p className="text-gray-400 font-mono text-sm">Arc Network Real-time Metrics & On-chain Data</p>
+        <div className="flex items-center gap-4">
+          <a href="/" className="flex-shrink-0">
+            <img src="/logo-arc-cyberpunk.png" alt="Arc Network" className="h-16 w-16 object-contain" />
+          </a>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">
+              <span className="text-cyan-400 neon-cyan">[</span>
+              <span className="text-cyan-400 neon-cyan">DASHBOARD</span>
+              <span className="text-cyan-400 neon-cyan">]</span>
+            </h1>
+            <p className="text-gray-400 font-mono text-sm">Arc Network Real-time Metrics & On-chain Data</p>
+          </div>
         </div>
         <div className="hidden md:block">
           <WalletConnector />
