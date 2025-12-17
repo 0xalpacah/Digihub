@@ -8,6 +8,7 @@ import PricesCard from '@/components/PricesCard';
 import GasCard from '@/components/GasCard';
 import PortfolioCard from '@/components/PortfolioCard';
 import { useAuth } from '@/_core/hooks/useAuth';
+import WalletDetails from '@/components/WalletDetails';
 
 interface DashboardMetrics {
   networkMetrics: any;
@@ -299,6 +300,13 @@ export default function Dashboard() {
         <MetricsTrendCharts hours={24} />
       </div>
 
+      {/* Wallet Details Section */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">
+          <span className="text-cyan-400">&gt;</span> WALLET DETAILS
+        </h2>
+        <WalletDetails />
+      </div>
       {/* Footer */}
       <div className="mt-12 pt-8 border-t border-gray-800 text-center">
         <p className="text-gray-500 font-mono text-xs">
@@ -309,5 +317,5 @@ export default function Dashboard() {
         </p>
       </div>
     </div>
-  );
+  )
 }
