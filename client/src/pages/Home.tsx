@@ -50,17 +50,17 @@ export default function Home() {
             {/* Main Title with Glitch Effect */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-bold text-cyan-400 neon-cyan font-mono tracking-wider">
-                ARC NETWORK
+                DIGI HUB
               </h1>
               <div className="h-1 w-32 mx-auto bg-gradient-to-r from-cyan-500 via-magenta-500 to-cyan-500 opacity-70"></div>
               <p className="text-xl md:text-2xl text-muted-foreground font-mono">
-                [ Web3 Hub • Network Status • Creator Community ]
+                [ Web3 Platform • Crypto Dashboard • Portfolio Manager ]
               </p>
             </div>
 
             {/* Subtitle */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Explore the Arc Network ecosystem. Real-time metrics, developer resources, and community-driven content for Web3 builders.
+              Your all-in-one Web3 hub for real-time crypto prices, gas tracking, portfolio management, and blockchain interactions. Powered by advanced analytics and community insights.
             </p>
 
             {/* CTA Buttons */}
