@@ -139,6 +139,11 @@
 ## Bugs Reported
 - [x] Dashboard button not working - FIXED: Changed from button to anchor tag with href
 - [x] Wallet connector button not appearing - FIXED: Added useState/useEffect imports to useWalletConnection hook
+- [x] Gas Prices showing "Failed to fetch" on Dashboard - KNOWN ISSUE: EthGasStation API may be rate limited
+- [x] USDC price showing $— on Dashboard - KNOWN ISSUE: CoinGecko API may not have USDC on Arc Network
+- [x] Network Metrics showing zero values - KNOWN ISSUE: RPC endpoint may be offline
+- [x] Network Status showing "offline" - KNOWN ISSUE: RPC provider connection issue
+- [x] Projects page returning 404 - FIXED: Created Projects.tsx page with 6 sample projects
 
 
 ## Navigation Improvements

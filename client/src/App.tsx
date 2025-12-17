@@ -12,6 +12,7 @@ import Resources from "./pages/Resources";
 import Admin from "./pages/Admin";
 import ContractInteractions from "./pages/ContractInteractions";
 import Portfolio from "./pages/Portfolio";
+import Projects from "./pages/Projects";
 import { WagmiProvider } from "wagmi";
 import { config } from "./config/wallet";
 
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/resources" component={Resources} />
+      <Route path="/projects" component={Projects} />
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/admin" component={Admin} />
       <Route path="/404" component={NotFound} />
