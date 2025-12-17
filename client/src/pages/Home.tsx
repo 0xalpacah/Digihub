@@ -3,9 +3,12 @@ import { Button } from "@/components/ui/button";
 import { getLoginUrl } from "@/const";
 import NetworkDashboard from "@/components/NetworkDashboard";
 import { ArrowRight, Zap, Code2, Users, TrendingUp } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
@@ -20,14 +23,15 @@ export default function Home() {
           </a>
           <div className="flex items-center gap-4">
             <a href="#blog" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
-              Blog
+              {t('nav.blog')}
             </a>
             <a href="#resources" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
-              Resources
+              {t('nav.resources')}
             </a>
             <a href="#projects" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
-              Projects
+              {t('nav.projects')}
             </a>
+            <LanguageSwitcher />
             {isAuthenticated ? (
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">{user?.name}</span>
@@ -54,29 +58,29 @@ export default function Home() {
               </h1>
               <div className="h-1 w-32 mx-auto bg-gradient-to-r from-cyan-500 via-magenta-500 to-cyan-500 opacity-70"></div>
               <p className="text-xl md:text-2xl text-muted-foreground font-mono">
-                [ Web3 Platform • Crypto Dashboard • Portfolio Manager ]
+                [ {t('home.subtitle')} ]
               </p>
             </div>
 
             {/* Subtitle */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Your all-in-one Web3 hub for real-time crypto prices, gas tracking, portfolio management, and blockchain interactions. Powered by advanced analytics and community insights.
+              {t('home.description')}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 flex-wrap">
               <a href="/dashboard" className="btn-cyber group inline-block">
                 <span className="flex items-center gap-2">
-                  Explore Dashboard
+                  {t('home.btn.dashboard')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
               <a href="/blog" className="btn-cyber-magenta inline-block">
-                Read Blog
+                {t('home.btn.blog')}
               </a>
               <a href="/contract" className="btn-cyber-green inline-block">
                 <span className="flex items-center gap-2">
-                  Contract Interactions
+                  {t('home.btn.contract')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
