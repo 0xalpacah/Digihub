@@ -131,8 +131,8 @@
 - [x] Add Arc Network verification
 - [x] Display on-chain statistics (projects, donations, contributors)
 - [x] Add refresh button to update data after transactions
-- [ ] Deploy ArcNetworkRegistry contract to Arc Network
-- [ ] Update ARC_REGISTRY_ADDRESS in environment variables
+- [x] Deploy ArcNetworkRegistry contract to Arc Network (SmartVault)
+- [x] Update ARC_REGISTRY_ADDRESS in environment variables (0x3b27790550EA6184Cf1d55B306Ec4DD1D3E4913A)
 - [ ] Add contract interaction links to Home and Dashboard pages
 
 

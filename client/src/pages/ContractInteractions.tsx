@@ -10,7 +10,7 @@ export default function ContractInteractions() {
   const [activeTab, setActiveTab] = useState<'register' | 'donate'>('register');
 
   // Contract address - will be set from environment or hardcoded after deployment
-  const REGISTRY_ADDRESS = process.env.REACT_APP_ARC_REGISTRY_ADDRESS || '0x0000000000000000000000000000000000000000';
+  const REGISTRY_ADDRESS = import.meta.env.VITE_ARC_REGISTRY_ADDRESS || '0x0000000000000000000000000000000000000000';
 
   // Fetch on-chain data to refresh after transactions
   const onChainDataQuery = trpc.onChainData.getDashboardData.useQuery();
