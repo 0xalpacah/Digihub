@@ -154,3 +154,27 @@
 - [x] Integrate logo into Dashboard header
 - [ ] Add logo to Blog page header
 - [ ] Create logo variants (small, medium, large)
+
+
+## Theme & Web3 Upgrade
+- [ ] Update CSS color variables (USDC blue, cyan neon, purple neon)
+- [ ] Install wagmi, viem, @walletconnect dependencies
+- [ ] Update WalletConnector to use wagmi hooks
+- [ ] Integrate new color scheme throughout project
+- [ ] Update button and card styles with new gradient
+- [ ] Test all components with new theme
+
+
+## Web3 Advanced Integration
+- [ ] Install wagmi, viem, @walletconnect dependencies
+- [ ] Create wallet configuration (wallet.ts)
+- [ ] Create usePrices hook (CoinGecko API)
+- [ ] Create useGas hook (EthGasStation API)
+- [ ] Create PricesCard component
+- [ ] Create GasCard component
+- [ ] Create ConnectButton with wagmi
+- [ ] Update CSS with new color scheme (USDC blue, cyan, purple)
+- [ ] Integrate WagmiProvider in App.tsx
+- [ ] Update Dashboard with prices and gas
+- [ ] Add price charts with Recharts
+- [ ] Create price alerts system

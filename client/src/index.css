@@ -44,6 +44,15 @@
 }
 
 :root {
+  /* Web3 Advanced Theme */
+  --bg-dark: #0b0f1a;
+  --bg-card: #0f172a;
+  --blue-usdc: #2775ca;
+  --cyan-neon: #00e5ff;
+  --purple-neon: #7c3aed;
+  --text-main: #e5e7eb;
+  --border-glow: linear-gradient(135deg, #2775ca, #00e5ff, #7c3aed);
+  
   /* Cyberpunk Dark Theme */
   --primary: var(--color-blue-700);
   --primary-foreground: var(--color-blue-50);
@@ -465,4 +474,13 @@
       transform: translate(-1px, 1px);
     }
   }
+}
+
+
+.cyber-gradient {
+  background: linear-gradient(135deg, #2775ca, #00e5ff, #7c3aed);
+}
+
+.cyber-gradient:hover {
+  box-shadow: 0 0 20px rgba(39, 117, 202, 0.6), 0 0 40px rgba(0, 229, 255, 0.4);
 }
