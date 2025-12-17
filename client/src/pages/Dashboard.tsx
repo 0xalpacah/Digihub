@@ -45,8 +45,8 @@ export default function Dashboard() {
       {/* Header with Wallet Connector */}
       <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <a href="/" className="flex-shrink-0">
-            <img src="/logo-arc-cyberpunk.png" alt="Arc Network" className="h-16 w-16 object-contain" />
+          <a href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+            <img src="/digi-hub-logo-styled.png" alt="DIGI Hub" className="h-16 w-16 object-contain drop-shadow-lg" />
           </a>
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-2">

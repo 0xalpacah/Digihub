@@ -13,9 +13,9 @@ export default function Home() {
       <nav className="sticky top-0 z-50 backdrop-blur-sm border-b" style={{ borderColor: 'rgba(0, 255, 255, 0.2)' }}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src="/logo-arc-cyberpunk.png" alt="Arc Network" className="h-12 w-12 object-contain" />
+            <img src="/digi-hub-logo-styled.png" alt="DIGI Hub" className="h-14 w-14 object-contain drop-shadow-lg" />
             <div className="text-2xl font-bold text-cyan-400 neon-cyan font-mono hidden sm:block">
-              [ ARC ]
+              [ DIGI HUB ]
             </div>
           </a>
           <div className="flex items-center gap-4">
