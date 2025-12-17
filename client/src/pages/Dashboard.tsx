@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { trpc } from '@/lib/trpc';
 import { Activity, Users, Zap, Coins, TrendingUp, AlertCircle, RefreshCw } from 'lucide-react';
 import WalletConnector from '@/components/WalletConnector';
 import MetricsTrendCharts from '@/components/MetricsTrendCharts';
+import ConnectButton from '@/components/ConnectButton';
+import PricesCard from '@/components/PricesCard';
+import GasCard from '@/components/GasCard';
+import PortfolioCard from '@/components/PortfolioCard';
 import { useAuth } from '@/_core/hooks/useAuth';
 
 interface DashboardMetrics {
@@ -84,6 +88,13 @@ export default function Dashboard() {
             CONTRACT INTERACTIONS
           </a>
         </div>
+      </div>
+
+      {/* Web3 Cards Grid */}
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <PricesCard />
+        <GasCard />
+        <PortfolioCard />
       </div>
 
       {/* Refresh Button */}

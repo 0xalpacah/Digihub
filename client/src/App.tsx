@@ -11,6 +11,9 @@ import BlogPost from "./pages/BlogPost";
 import Resources from "./pages/Resources";
 import Admin from "./pages/Admin";
 import ContractInteractions from "./pages/ContractInteractions";
+import Portfolio from "./pages/Portfolio";
+import { WagmiProvider } from "wagmi";
+import { config } from "./config/wallet";
 
 function Router() {
   return (
@@ -21,6 +24,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/resources" component={Resources} />
+      <Route path="/portfolio" component={Portfolio} />
       <Route path="/admin" component={Admin} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
@@ -32,14 +36,16 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="dark"
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
+      <WagmiProvider config={config}>
+        <ThemeProvider
+          defaultTheme="dark"
+        >
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </ThemeProvider>
+      </WagmiProvider>
     </ErrorBoundary>
   );
 }
