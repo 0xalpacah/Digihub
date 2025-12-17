@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
+import { useBlockscoutAPI } from './useBlockscoutAPI'
 
 export interface NFT {
   id: string
@@ -21,6 +22,8 @@ interface WalletNFTs {
 
 export function useWalletNFTs() {
   const { address, isConnected } = useAccount()
+  const { getAddressNFTs } = useBlockscoutAPI()
+
   const [nfts, setNFTs] = useState<WalletNFTs>({
     nfts: [],
     loading: true,
@@ -43,57 +46,45 @@ export function useWalletNFTs() {
       try {
         setNFTs((prev) => ({ ...prev, loading: true, error: null }))
 
-        // Simulated NFTs (in real app, fetch from Alchemy, Moralis, or OpenSea API)
-        const simulatedNFTs: NFT[] = [
-          {
-            id: 'nft-1',
-            name: 'Cyber Punk #1234',
-            collection: 'Cyber Punks',
-            image: 'https://via.placeholder.com/200?text=NFT1',
-            contractAddress: '0x1111111111111111111111111111111111111111',
-            tokenId: '1234',
-            floorPrice: 2.5,
-            rarity: 'Rare',
-          },
-          {
-            id: 'nft-2',
-            name: 'Digital Art #5678',
-            collection: 'Digital Arts',
-            image: 'https://via.placeholder.com/200?text=NFT2',
-            contractAddress: '0x2222222222222222222222222222222222222222',
-            tokenId: '5678',
-            floorPrice: 1.2,
-            rarity: 'Common',
-          },
-          {
-            id: 'nft-3',
-            name: 'Web3 Badge #9999',
-            collection: 'Web3 Badges',
-            image: 'https://via.placeholder.com/200?text=NFT3',
-            contractAddress: '0x3333333333333333333333333333333333333333',
-            tokenId: '9999',
-            floorPrice: 0.5,
-            rarity: 'Uncommon',
-          },
-        ]
+        // Fetch NFTs from Blockscout
+        const blockscoutNFTs = await getAddressNFTs(address)
+
+        const nfts: NFT[] = blockscoutNFTs.map((nft) => {
+          const metadata = (nft as any).metadata || {}
+          const token = (nft as any).token || {}
+          
+          return {
+            id: `${token.address}-${nft.token_id}`,
+            name: metadata.name || token.name || 'Unknown NFT',
+            collection: token.name || 'Unknown Collection',
+            image: metadata.image || (nft as any).image_url || 'https://via.placeholder.com/200?text=NFT',
+            contractAddress: token.address || '',
+            tokenId: nft.token_id,
+            floorPrice: undefined, // Would need additional API call
+            rarity: undefined, // Would need additional API call
+          }
+        })
 
         setNFTs({
-          nfts: simulatedNFTs,
+          nfts,
           loading: false,
           error: null,
-          totalCount: simulatedNFTs.length,
+          totalCount: nfts.length,
         })
       } catch (err) {
-        setNFTs((prev) => ({
-          ...prev,
+        // NFTs endpoint might not be available on all chains
+        // Fallback to empty array instead of error
+        setNFTs({
+          nfts: [],
           loading: false,
-          error: err instanceof Error ? err.message : 'Failed to fetch NFTs',
-        }))
+          error: err instanceof Error ? err.message : 'NFTs not available',
+          totalCount: 0,
+        })
       }
     }
 
     fetchNFTs()
-  }, [address, isConnected])
+  }, [address, isConnected, getAddressNFTs])
 
   return nfts
 }

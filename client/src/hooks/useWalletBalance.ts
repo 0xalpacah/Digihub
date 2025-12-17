@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useAccount, useBalance } from 'wagmi'
+import { useAccount } from 'wagmi'
 import { formatEther } from 'viem'
+import { useBlockscoutAPI } from './useBlockscoutAPI'
 
 interface TokenBalance {
   symbol: string
@@ -8,6 +9,7 @@ interface TokenBalance {
   balance: string
   decimals: number
   usdValue?: number
+  address: string
 }
 
 interface WalletBalance {
@@ -18,11 +20,18 @@ interface WalletBalance {
   error: string | null
 }
 
+// Simulated token prices (in real app, fetch from CoinGecko or similar)
+const TOKEN_PRICES: Record<string, number> = {
+  'USDC': 1.0,
+  'USDT': 1.0,
+  'DAI': 1.0,
+  'ETH': 3500,
+  'ARB': 0.8,
+}
+
 export function useWalletBalance() {
   const { address, isConnected } = useAccount()
-  const { data: ethBalance, isLoading: ethLoading } = useBalance({
-    address,
-  })
+  const { getNativeBalance, getTokenBalances } = useBlockscoutAPI()
 
   const [balance, setBalance] = useState<WalletBalance>({
     eth: '0',
@@ -48,35 +57,38 @@ export function useWalletBalance() {
       try {
         setBalance((prev) => ({ ...prev, loading: true, error: null }))
 
-        // ETH Balance
-        const ethValue = ethBalance ? formatEther(ethBalance.value) : '0'
+        // Fetch native balance
+        const nativeBalance = await getNativeBalance(address)
+        const ethValue = nativeBalance ? formatEther(BigInt(nativeBalance)) : '0'
 
-        // Simulated token balances (in real app, fetch from contract)
-        const tokens: TokenBalance[] = [
-          {
-            symbol: 'USDC',
-            name: 'USD Coin',
-            balance: '1000.00',
-            decimals: 6,
-            usdValue: 1000,
-          },
-          {
-            symbol: 'USDT',
-            name: 'Tether',
-            balance: '500.00',
-            decimals: 6,
-            usdValue: 500,
-          },
-          {
-            symbol: 'DAI',
-            name: 'Dai Stablecoin',
-            balance: '250.00',
-            decimals: 18,
-            usdValue: 250,
-          },
-        ]
+        // Fetch token balances from Blockscout
+        const blockscoutTokens = await getTokenBalances(address)
+        
+        const tokens: TokenBalance[] = blockscoutTokens
+          .map((tokenBalance) => {
+            // tokenBalance has token object with symbol, decimals, etc
+            const tokenInfo = (tokenBalance as any).token || tokenBalance
+            const symbol = (tokenInfo as any).symbol || 'UNKNOWN'
+            const decimals = (tokenInfo as any).decimals || 18
+            const name = (tokenInfo as any).name || symbol
+            const address = (tokenInfo as any).address || ''
+            
+            const balance = (BigInt((tokenBalance as any).value || 0) / BigInt(10 ** decimals)).toString()
+            const price = TOKEN_PRICES[symbol] || 0
+            const usdValue = parseFloat(balance) * price
 
-        const ethUSD = parseFloat(ethValue) * 3500 // Simulated ETH price
+            return {
+              symbol,
+              name,
+              balance: parseFloat(balance).toFixed(2),
+              decimals,
+              usdValue,
+              address,
+            }
+          })
+          .filter((t) => t.symbol !== 'UNKNOWN') // Filter out invalid entries
+
+        const ethUSD = parseFloat(ethValue) * (TOKEN_PRICES['ETH'] || 3500)
         const tokensUSD = tokens.reduce((sum, t) => sum + (t.usdValue || 0), 0)
         const totalUSD = ethUSD + tokensUSD
 
@@ -84,7 +96,7 @@ export function useWalletBalance() {
           eth: ethValue,
           tokens,
           totalUSD,
-          loading: ethLoading,
+          loading: false,
           error: null,
         })
       } catch (err) {
@@ -97,7 +109,7 @@ export function useWalletBalance() {
     }
 
     fetchBalance()
-  }, [address, isConnected, ethBalance, ethLoading])
+  }, [address, isConnected, getNativeBalance, getTokenBalances])
 
   return balance
 }
