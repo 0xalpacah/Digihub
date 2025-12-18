@@ -3,10 +3,40 @@ import { Button } from "@/components/ui/button";
 import { getLoginUrl } from "@/const";
 import NetworkDashboard from "@/components/NetworkDashboard";
 import { ArrowRight, Zap, Code2, Users, TrendingUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
+
+function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguage();
+  return (
+    <div className="flex gap-2">
+      <button
+        onClick={() => setLanguage('en')}
+        className={`px-2 py-1 font-mono text-xs border rounded transition-colors ${
+          language === 'en'
+            ? 'border-cyan-400 text-cyan-400 bg-cyan-950'
+            : 'border-gray-600 text-gray-400 hover:border-gray-400'
+        }`}
+      >
+        EN
+      </button>
+      <button
+        onClick={() => setLanguage('pt')}
+        className={`px-2 py-1 font-mono text-xs border rounded transition-colors ${
+          language === 'pt'
+            ? 'border-cyan-400 text-cyan-400 bg-cyan-950'
+            : 'border-gray-600 text-gray-400 hover:border-gray-400'
+        }`}
+      >
+        PT
+      </button>
+    </div>
+  );
+}
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
@@ -20,14 +50,15 @@ export default function Home() {
             </div>
           </a>
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <a href="#blog" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
-              Blog
+              {t('nav.blog')}
             </a>
             <a href="#resources" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
-              Resources
+              {t('nav.resources')}
             </a>
             <a href="#projects" className="text-sm uppercase tracking-wider hover:text-cyan-400 transition-colors">
-              Projects
+              {t('nav.projects')}
             </a>
             {isAuthenticated ? (
               <div className="flex items-center gap-2">
