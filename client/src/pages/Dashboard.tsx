@@ -8,6 +8,7 @@ import PricesCard from '@/components/PricesCard';
 import GasCard from '@/components/GasCard';
 import PortfolioCard from '@/components/PortfolioCard';
 import WalletBalanceCard from '@/components/WalletBalanceCard';
+import PortfolioChart from '@/components/PortfolioChart';
 import { useAuth } from '@/_core/hooks/useAuth';
 import WalletDetails from '@/components/WalletDetails';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -138,6 +139,11 @@ export default function Dashboard() {
         <div className="grid md:grid-cols-1 gap-6">
           <WalletBalanceCard />
         </div>
+      </div>
+
+      {/* Portfolio Performance Chart */}
+      <div className="mb-8">
+        <PortfolioChart />
       </div>
 
       {/* Refresh Button */}

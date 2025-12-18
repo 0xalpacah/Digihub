@@ -257,3 +257,13 @@
 - [x] Display total portfolio value in USD
 - [x] Test wallet balance display
 - [x] Deploy wallet balance feature
+
+
+## Portfolio Performance Chart
+- [x] Create PortfolioChart component with Recharts
+- [x] Add timeframe selector (1D, 7D, 30D, 90D)
+- [x] Display portfolio value and percentage change
+- [x] Show highest, average, and lowest values
+- [x] Add interactive line chart with tooltips
+- [x] Integrate PortfolioChart into Dashboard
+- [x] Test chart functionality and styling
