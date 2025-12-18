@@ -7,6 +7,7 @@ import ConnectButton from '@/components/ConnectButton';
 import PricesCard from '@/components/PricesCard';
 import GasCard from '@/components/GasCard';
 import PortfolioCard from '@/components/PortfolioCard';
+import WalletBalanceCard from '@/components/WalletBalanceCard';
 import { useAuth } from '@/_core/hooks/useAuth';
 import WalletDetails from '@/components/WalletDetails';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -127,6 +128,16 @@ export default function Dashboard() {
         <PricesCard />
         <GasCard />
         <PortfolioCard />
+      </div>
+
+      {/* Wallet Balance Card */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">
+          <span className="text-cyan-400">◆</span> WALLET BALANCE
+        </h2>
+        <div className="grid md:grid-cols-1 gap-6">
+          <WalletBalanceCard />
+        </div>
       </div>
 
       {/* Refresh Button */}

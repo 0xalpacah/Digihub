@@ -247,3 +247,13 @@
 - [x] Update GitHub with production-ready code
 - [x] Create final checkpoint
 - [x] Verify creator links (GitHub & X) visible in footer
+
+
+## Wallet Balance Display
+- [x] Create useWalletBalance hook for real-time balance fetching (already exists)
+- [x] Create WalletBalanceCard component
+- [x] Add WalletBalanceCard to Dashboard
+- [x] Show wallet address, ETH balance, and token balances
+- [x] Display total portfolio value in USD
+- [x] Test wallet balance display
+- [x] Deploy wallet balance feature
