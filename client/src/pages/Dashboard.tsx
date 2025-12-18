@@ -47,6 +47,7 @@ interface DashboardMetrics {
 }
 
 export default function Dashboard() {
+  const { t } = useLanguage();
   const [metrics, setMetrics] = useState<DashboardMetrics>({
     networkMetrics: null,
     onChainData: null,
@@ -85,10 +86,10 @@ export default function Dashboard() {
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-2">
               <span className="text-cyan-400 neon-cyan">[</span>
-              <span className="text-cyan-400 neon-cyan">DASHBOARD</span>
+              <span className="text-cyan-400 neon-cyan">{t('dashboard.title').replace('[', '').replace(']', '')}</span>
               <span className="text-cyan-400 neon-cyan">]</span>
             </h1>
-            <p className="text-gray-400 font-mono text-sm">Arc Network Real-time Metrics & On-chain Data</p>
+            <p className="text-gray-400 font-mono text-sm">{t('dashboard.subtitle')}</p>
           </div>
         </div>
         <div className="hidden md:flex items-center gap-4">
