@@ -231,11 +231,11 @@
 - [ ] Create monitoring dashboard
 - [ ] Setup uptime monitoring
 
-## Bilingual Support (Português/English)
-- [x] Create i18n context and translations
-- [x] Add language switcher button to header
-- [x] Translate home page to Portuguese and English
-- [x] Persist language preference in localStorage
+## Bilingual Support (EN/PT)
+- [x] Create LanguageContext with translations
+- [x] Add Language Switcher button to Dashboard
+- [x] Implement localStorage persistence
+- [x] Test EN/PT language switching
 - [ ] Update GitHub with bilingual support
 
 

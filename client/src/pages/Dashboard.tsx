@@ -9,6 +9,35 @@ import GasCard from '@/components/GasCard';
 import PortfolioCard from '@/components/PortfolioCard';
 import { useAuth } from '@/_core/hooks/useAuth';
 import WalletDetails from '@/components/WalletDetails';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguage();
+  return (
+    <div className="flex gap-2">
+      <button
+        onClick={() => setLanguage('en')}
+        className={`px-3 py-1 font-mono text-sm border rounded transition-colors ${
+          language === 'en'
+            ? 'border-cyan-400 text-cyan-400 bg-cyan-950'
+            : 'border-gray-600 text-gray-400 hover:border-gray-400'
+        }`}
+      >
+        EN
+      </button>
+      <button
+        onClick={() => setLanguage('pt')}
+        className={`px-3 py-1 font-mono text-sm border rounded transition-colors ${
+          language === 'pt'
+            ? 'border-cyan-400 text-cyan-400 bg-cyan-950'
+            : 'border-gray-600 text-gray-400 hover:border-gray-400'
+        }`}
+      >
+        PT
+      </button>
+    </div>
+  );
+}
 
 interface DashboardMetrics {
   networkMetrics: any;
@@ -62,7 +91,8 @@ export default function Dashboard() {
             <p className="text-gray-400 font-mono text-sm">Arc Network Real-time Metrics & On-chain Data</p>
           </div>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
           <WalletConnector />
         </div>
       </div>
