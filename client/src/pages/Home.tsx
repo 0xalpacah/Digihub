@@ -328,7 +328,7 @@ export default function Home() {
               <span className="text-xs">→</span>
             </a>
           </div>
-          <p className="text-xs text-gray-600 mt-3">Powered by Manus AI Platform</p>
+
         </div>
       </footer>
     </div>
