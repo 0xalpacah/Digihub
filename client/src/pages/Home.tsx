@@ -314,14 +314,17 @@ export default function Home() {
         </p>
         
         <div className="pt-6 border-t" style={{ borderColor: 'rgba(0, 255, 255, 0.1)' }}>
-          <p className="text-xs text-gray-500 mb-3">Created by</p>
-          <div className="flex items-center justify-center gap-6">
-            <a href="https://github.com/0xalpacah/Digihub" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
-              <span>GitHub</span>
+          <p className="text-sm font-bold text-cyan-400 mb-4 neon-cyan">Created by 0xalpacah</p>
+          <div className="flex items-center justify-center gap-8 mb-4">
+            <a href="https://github.com/0xalpacah/Digihub" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors font-mono text-sm">
+              <span className="text-lg">◆</span>
+              <span>GitHub: 0xalpacah/Digihub</span>
               <span className="text-xs">→</span>
             </a>
-            <a href="https://x.com/drop_alpacah?s=21" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
-              <span>@drop_alpacah</span>
+            <span className="text-cyan-400">|</span>
+            <a href="https://x.com/drop_alpacah?s=21" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-magenta-400 hover:text-magenta-300 transition-colors font-mono text-sm">
+              <span className="text-lg">◆</span>
+              <span>X: @drop_alpacah</span>
               <span className="text-xs">→</span>
             </a>
           </div>
